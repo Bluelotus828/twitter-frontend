@@ -14,7 +14,7 @@
 }
 
 .input {
-  composes: input from '../../../common.module.css';
+  composes: input from '../../common.module.css';
 }
 
 .changeTypeButton{

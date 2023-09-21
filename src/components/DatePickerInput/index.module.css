@@ -1,7 +1,7 @@
 
 
 .birthdayInput{
-  composes: input from '../../../common.module.css';
+  composes: input from '../../common.module.css';
   margin-top: 10px;
 }
 
