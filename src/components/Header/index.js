@@ -6,6 +6,6 @@ import style from './index.module.css';
 export default () => (
   <div className={style.header}>
     <CloseOutline className={style.closeIcon} />
-    <img src={logo} alt="twitter-logo" className={style.twitterLogo} />
+    <img src={logo} alt="logo" className={style.twitterLogo} />
   </div>
 );
