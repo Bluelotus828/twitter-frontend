@@ -1,18 +1,18 @@
 {
-  "user":[
+  "user": [
     {
-      "username":"哈哈哈",
-      "password": "12345",
-      "age": "23",
-      "address":"山东青岛"
+      "password": "test",
+      "username": "fafdsa",
+      "tel": "13243214323",
+      "birthday": "20220924",
+      "id": 1
     },
     {
-      "username":"嘿嘿嘿",
-      "password": "12345",
-      "age": "23",
-      "address":"山东青岛"
+      "password": "test",
+      "username": "fafdsa",
+      "tel": "13243214323",
+      "birthday": "20220924",
+      "id": 2
     }
-
-
   ]
 }
