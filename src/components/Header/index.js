@@ -1,11 +1,24 @@
+import PropTypes from 'prop-types';
 import { CloseOutline } from 'antd-mobile-icons';
 import logo from '../../assets/twitter-logo.svg';
 
-import style from './index.module.css';
+import style from './index.module.scss';
 
-export default () => (
+const Header = ({
+  onClickClose,
+}) => (
   <div className={style.header}>
-    <CloseOutline className={style.closeIcon} />
+    {onClickClose && <CloseOutline className={style.closeIcon} onClick={onClickClose} />}
     <img src={logo} alt="logo" className={style.twitterLogo} />
   </div>
 );
+
+Header.propTypes = {
+  onClickClose: PropTypes.func,
+};
+
+Header.defaultProps = {
+  onClickClose: null,
+};
+
+export default Header;
