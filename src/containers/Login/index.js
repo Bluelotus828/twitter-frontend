@@ -2,12 +2,11 @@
 import {
   Button, Form, Dialog,
 } from 'antd-mobile';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import cookies from 'js-cookie';
 // import { useGoTo } from '@utils/hooks';
 // import { useAppContext } from '@utils/context';
 import TInput from '@components/TInput';
-import Header from '@components/Header';
 import { login } from '../../services/login';
 import style from './index.module.scss';
 
@@ -16,14 +15,6 @@ import style from './index.module.scss';
  */
 const Login = () => {
   const [form] = Form.useForm();
-  // const go = useGoTo();
-
-  // const [, setStore] = useAppContext();
-  // useEffect(() => {
-  //   setStore({
-  //     closeHeaderHandler: null,
-  //   });
-  // }, []);
 
   const onSubmit = async () => {
     const values = await form.validateFields();
@@ -44,8 +35,6 @@ const Login = () => {
   };
 
   return (
-    <>
-      <Header />
       <div className={style.login}>
         <div className={style.formTitle}>登录 Twitter</div>
         <Form
@@ -74,14 +63,13 @@ const Login = () => {
         </Form>
         <div className={style.goToRegister}>
           还没有账号?
-          {/* <Link
+          <Link
             to="/register"
           >
             注册
-          </Link> */}
+          </Link>
         </div>
       </div>
-    </>
   );
 };
 
