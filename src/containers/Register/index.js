@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAppContext } from '@utils/context';
+import { useNavigate } from 'react-router-dom';
 import { Toast } from 'antd-mobile';
-import Header from '@components/Header';
-import Show from '@components/Show';
 import { registerUser } from '@services/register';
+import Show from '@components/show';
 import OneStep from './components/OneStep';
 import TwoStep from './components/TwoStep';
 
@@ -18,34 +19,49 @@ const STEP = {
 const Register = () => {
   const [step, setStep] = useState(STEP.ONE);
   const [userInfo, setUserInfo] = useState({});
+
+  const [, setStore] = useAppContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (step === STEP.ONE) {
+      setStore({
+        closeHeaderHandler: () => navigate('/login'),
+      });
+    }
+    if (step === STEP.TWO) {
+      setStore({
+        closeHeaderHandler: () => setStep(STEP.ONE),
+      });
+    }
+  }, [step]);
+
   const gotoNextStepHandler = (data) => {
     setUserInfo(data);
     setStep(STEP.TWO);
   };
+
   const confirmRegisterHandler = async (password) => {
     const res = await registerUser({
       password,
       ...userInfo,
     });
-    console.log(res);
     if (res?.success) {
       Toast.show('登录成功!');
       return;
     }
     Toast.show('登录失败');
   };
-  const onClickClose = () => {
-    setStep(STEP.ONE);
-  };
+
   return (
     <div>
-      <Header onClickClose={onClickClose} />
       <Show visible={step === STEP.ONE}>
         <OneStep gotoNextStepHandler={gotoNextStepHandler} />
       </Show>
-      <Show visible={step === STEP.TWO}>
+      <Show visible={step === STEP.TWO} isMount>
         <TwoStep
           userInfo={userInfo}
+          goToOneStepHandler={() => setStep(STEP.ONE)}
           confirmRegisterHandler={confirmRegisterHandler}
         />
       </Show>

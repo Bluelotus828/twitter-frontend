@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form } from 'antd-mobile';
 import PropTypes from 'prop-types';
 import DatePickerInput from '@components/DatePickerInput';
+
 import TInput from '@components/TInput';
 
 import style from '../index.module.scss';
@@ -20,7 +21,7 @@ const OneStep = ({
     name: '',
     phone: '',
     email: '',
-    birthday: '',
+    birthday: '20220203',
   });
   const [accountType, setAccountType] = useState(ACCOUNT_TYPE.TEL);
   const [footerButtonDisabled, setFooterButtonDisabled] = useState(true);
