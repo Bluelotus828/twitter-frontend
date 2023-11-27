@@ -3,12 +3,21 @@ import {
 } from 'react';
 import propTypes from 'prop-types';
 
+/**
+ * default store, 默认store
+ */
 const defaultStore = {
   clsoeHeaderHandler: null,
 };
 
+/**
+ * create context object
+ */
 const AppContext = createContext();
 
+/**
+ * encapsulate
+ */
 export const CxtProvider = ({
   children,
 }) => {
@@ -29,7 +38,9 @@ CxtProvider.propTypes = {
   children: propTypes.node.isRequired,
 
 };
-
+/**
+ * aceess the data
+ */
 export const useAppContext = () => {
   const cxt = useContext(AppContext);
 

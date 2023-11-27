@@ -12,24 +12,24 @@ const menus = [
     key: 'home',
     title: '主页',
     link: 'tweets',
-    icon: <img className={style.icon} src={homeSvg} alt="" />,
+    icon: <img className={style.icon} src={homeSvg} alt="Home" />,
   },
   {
     key: 'search',
     link: '/',
-    icon: <img className={style.icon} src={searchSvg} alt="" />,
+    icon: <img className={style.icon} src={searchSvg} alt="Search" />,
   },
   {
     key: 'tip',
     title: '通知',
     link: '/',
-    icon: <img className={style.icon} src={tipSvg} alt="" />,
+    icon: <img className={style.icon} src={tipSvg} alt="Notification" />,
   },
   {
     key: 'message',
     title: '私信',
     link: '/',
-    icon: <img className={style.icon} src={messageSvg} alt="" />,
+    icon: <img className={style.icon} src={messageSvg} alt="PM" />,
   },
 ];
 
@@ -41,7 +41,7 @@ const Bottom = () => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <TabBar activeKey={activeKey} onChange={onChangeTabItem}>
         {menus.map((item) => (
           item.isMenu && <TabBar.Item key={item.key} icon={item.icon} />
