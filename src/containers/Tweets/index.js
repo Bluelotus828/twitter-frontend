@@ -1,10 +1,9 @@
-import Bottom from '@components/Bottom';
 import { useState, useEffect } from 'react';
 
 import style from './index.module.scss';
 
 /**
-*
+*main tweet page
 */
 const Tweets = () => {
   const [data, setDate] = useState();
@@ -14,7 +13,7 @@ const Tweets = () => {
   }, []);
   return (
     <div className={style.container}>
-      <Bottom />
+      {data}
     </div>
   );
 };
