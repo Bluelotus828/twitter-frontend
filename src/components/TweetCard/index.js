@@ -7,7 +7,6 @@ import moment from 'moment';
 
 import style from './index.module.scss';
 
-
 const TweetCard = ({
   dataSource,
 }) => {
